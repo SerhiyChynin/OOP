@@ -19,15 +19,20 @@ class Alert {
 } 
 
 class Alert2 extends Alert {
-    constructor(a,c,d, icon) {
+    constructor(a, c, d, icon) {
         super(a, c, d) // передали значения в алерт 1. Аллерт 2 унаследовался от аллерт 1 + добавили иконку.
-        this.icon = icon;    
-    } showIconAlet() {
-        
-    }          
+        this.icon = icon;
+    }
+    showIconAlert() {
+        document.querySelector(this.out).innerHTML = `<p class="${this.cssClass}"><span class="material-symbols-outlined">${this.icon}
+        </span>${this.message}</p>`;
+    }
+      
 }
 let m = new Alert('My message', 'orange', '.test');                
 console.log(m);
-
 m.showAlert();  
-letm2 = new Alert2('My message', 'orange', '.test');     
+
+let m2 = new Alert2('My message', 'orange', '.test', 'dynamic_form'); 
+
+m2.showIconAlert();   
